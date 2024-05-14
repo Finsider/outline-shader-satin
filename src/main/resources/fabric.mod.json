@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "outline-shader",
+	"version": "${version}",
+	"name": "outline-shader",
+	"description": "Shader made by giiki_s2 ported to Satin by finside",
+	"authors": [
+		"giiki_s2, finside"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/outlineshader/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.example.Outlineshader"
+		]
+	},
+	"mixins": [],
+	"depends": {
+		"fabricloader": ">=0.15.7",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"satin": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
