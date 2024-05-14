@@ -2,7 +2,6 @@
 
 uniform sampler2D DiffuseSampler;
 uniform sampler2D ParticlesDepthSampler;
-uniform sampler2D TranslucentSampler;
 
 in vec2 texCoord;
 in vec2 oneTexel;
@@ -37,9 +36,8 @@ void main(){
     float d4 = 1.0 - 2.0 * near * far / (far + near - (2.0 * depthSample_l.x - 1.0) * (far - near)) / far;
     float d5 = 1.0 - 2.0 * near * far / (far + near - (2.0 * depthSample_r.x - 1.0) * (far - near)) / far;
 
-    float translucent = dot(texture(TranslucentSampler, uv).rgb, vec3(0.333));
 
-    float alldif = 4.0 * d1 - 20.0 * translucent - d2- d3- d4- d5;
+    float alldif = 4.0 * d1 - d2- d3- d4- d5;
 
-    fragColor = vec4(center.rgb + center.rgb * clamp(alldif * 20.0, 0.0, 1.0) * d1, center.a);
+    fragColor = vec4(center.rgb + center.rgb * clamp(alldif * 20.0, 0.0, 1.0) * d1, 1.0);
 }
